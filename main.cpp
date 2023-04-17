@@ -60,10 +60,10 @@ int main()
 
         auto text_builder = std::ostringstream();
         text_builder << "Controls:\n";
-        text_builder << "\tq: Set minimum size\n";
-        text_builder << "\ta: Unset minimum size\n";
-        text_builder << "\tw: Set maximum size\n";
-        text_builder << "\ts: Unset maximum size\n";
+        text_builder << "\t" << getDescription(sf::Keyboard::Scan::Q).toAnsiString() << ": Set minimum size\n";
+        text_builder << "\t" << getDescription(sf::Keyboard::Scan::A).toAnsiString() << ": Unset minimum size\n";
+        text_builder << "\t" << getDescription(sf::Keyboard::Scan::W).toAnsiString() << ": Set maximum size\n";
+        text_builder << "\t" << getDescription(sf::Keyboard::Scan::S).toAnsiString() << ": Unset maximum size\n";
         text_builder << "Minimum size ";
         if (!is_minimum_size_enforced)
             text_builder << "not ";
