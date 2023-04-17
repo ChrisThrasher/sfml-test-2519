@@ -26,6 +26,9 @@ int main()
             case sf::Event::Closed:
                 window.close();
                 break;
+            case sf::Event::Resized:
+                window.setView(sf::View(sf::FloatRect(sf::Vector2f(), sf::Vector2f(event.size.width, event.size.height))));
+                break;
             case sf::Event::KeyPressed:
                 switch (event.key.scancode) {
                 case sf::Keyboard::Scan::Q:
