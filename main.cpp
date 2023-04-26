@@ -27,7 +27,8 @@ int main()
                 window.close();
                 break;
             case sf::Event::Resized:
-                window.setView(sf::View(sf::FloatRect(sf::Vector2f(), sf::Vector2f(event.size.width, event.size.height))));
+                window.setView(
+                    sf::View(sf::FloatRect(sf::Vector2f(), sf::Vector2f(event.size.width, event.size.height))));
                 break;
             case sf::Event::KeyPressed:
                 switch (event.key.scancode) {
@@ -47,6 +48,12 @@ int main()
                     window.setMaximumSize({});
                     is_maximum_size_enforced = false;
                     break;
+                case sf::Keyboard::Scan::Z:
+                    window.setSize({ 300, 300 });
+                    break;
+                case sf::Keyboard::Scan::X:
+                    window.setSize({ 700, 700 });
+                    break;
                 default:
                     break;
                 }
@@ -64,6 +71,8 @@ int main()
         text_builder << "\t" << getDescription(sf::Keyboard::Scan::A).toAnsiString() << ": Unset minimum size\n";
         text_builder << "\t" << getDescription(sf::Keyboard::Scan::W).toAnsiString() << ": Set maximum size\n";
         text_builder << "\t" << getDescription(sf::Keyboard::Scan::S).toAnsiString() << ": Unset maximum size\n";
+        text_builder << "\t" << getDescription(sf::Keyboard::Scan::Z).toAnsiString() << ": Set size below minimum\n";
+        text_builder << "\t" << getDescription(sf::Keyboard::Scan::X).toAnsiString() << ": Set size above maximum\n";
         text_builder << "Minimum size ";
         if (!is_minimum_size_enforced)
             text_builder << "not ";
