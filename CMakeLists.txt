@@ -3,6 +3,9 @@ project(sfml-test-2519 LANGUAGES CXX)
 
 option(BUILD_SHARED_LIBS "Build shared libraries" OFF)
 
+set(SFML_BUILD_NETWORK OFF)
+set(SFML_BUILD_AUDIO OFF)
+
 include(FetchContent)
 FetchContent_Declare(SFML
     GIT_REPOSITORY https://github.com/dogunbound/SFML.git
